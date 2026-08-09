@@ -119,9 +119,18 @@ export default function Home() {
         <div className="footer-contact">
           <ContactTrigger className="button footer-contact-button">Contact Me</ContactTrigger>
           <div className="footer-links">
-            <a href="https://github.com/Parash-Shah" target="_blank" rel="noreferrer">GitHub ↗</a>
-            <a href="https://www.linkedin.com/in/parash-shah-3b3891279" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-            <a href="tel:+15512549284">+1 (551) 254-9284</a>
+            <a className="footer-link" href="https://github.com/Parash-Shah" target="_blank" rel="noopener noreferrer">
+              <span>GitHub</span>
+              <strong>https://github.com/Parash-Shah</strong>
+            </a>
+            <a className="footer-link" href="https://www.linkedin.com/in/parash-shah-3b3891279" target="_blank" rel="noopener noreferrer">
+              <span>LinkedIn</span>
+              <strong>https://www.linkedin.com/in/parash-shah-3b3891279</strong>
+            </a>
+            <a className="footer-link" href="tel:+15512549284">
+              <span>Phone</span>
+              <strong>+1 (551) 254-9284</strong>
+            </a>
           </div>
         </div>
       </footer>

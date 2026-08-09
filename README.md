@@ -27,7 +27,7 @@ npm install
 npm run dev
 ```
 
-Open `http://localhost:3000`.
+Open the local development address printed by Next.js.
 
 ## Roadmap
 
