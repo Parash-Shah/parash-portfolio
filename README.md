@@ -1,4 +1,4 @@
-# Parash Shah — Engineering Portfolio
+# Parash Shah | Engineering Portfolio
 
 An interactive engineering portfolio focused on distributed systems, cloud infrastructure, security engineering, reliability, and AI infrastructure.
 
