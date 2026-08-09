@@ -15,7 +15,7 @@ export default function Home() {
     <ContactProvider>
     <main>
       <nav className="nav shell" aria-label="Primary navigation">
-        <a className="brand" href="#top">PS<span>.</span></a>
+        <a className="brand" href="#top" aria-label="Parash Portfolio home">PS<span>.</span></a>
         <div className="nav-links" aria-label="Portfolio sections">
           <a href="#story">Story</a>
           <a href="#work">Work</a>
