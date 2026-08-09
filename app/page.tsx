@@ -1,5 +1,6 @@
 import { ProjectCard } from "@/components/ProjectCard";
 import { SystemFlow } from "@/components/SystemFlow";
+import { ContactProvider, ContactTrigger } from "@/components/ContactModal";
 import { projects } from "@/data/projects";
 
 const stats = [
@@ -11,6 +12,7 @@ const stats = [
 
 export default function Home() {
   return (
+    <ContactProvider>
     <main>
       <nav className="nav shell" aria-label="Primary navigation">
         <a className="brand" href="#top">PS<span>.</span></a>
@@ -20,7 +22,7 @@ export default function Home() {
           <a href="#projects">Projects</a>
           <a href="https://github.com/Parash-Shah" target="_blank" rel="noreferrer">GitHub</a>
         </div>
-        <a className="button button--ghost" href="#contact">Let&apos;s talk</a>
+        <ContactTrigger className="button button--ghost">Let&apos;s talk</ContactTrigger>
       </nav>
 
       <section className="hero shell" id="top">
@@ -114,12 +116,16 @@ export default function Home() {
           <p className="kicker">Build. Learn. Ship. Repeat.</p>
           <h2>Let&apos;s build systems that matter.</h2>
         </div>
-        <div className="footer-links">
-          <a href="https://github.com/Parash-Shah" target="_blank" rel="noreferrer">GitHub ↗</a>
-          <a href="https://www.linkedin.com/in/parash-shah-3b3891279/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-          <a href="mailto:parash5301@yahoo.com">Email ↗</a>
+        <div className="footer-contact">
+          <ContactTrigger className="button footer-contact-button">Contact Me</ContactTrigger>
+          <div className="footer-links">
+            <a href="https://github.com/Parash-Shah" target="_blank" rel="noreferrer">GitHub ↗</a>
+            <a href="https://www.linkedin.com/in/parash-shah-3b3891279" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+            <a href="tel:+15512549284">+1 (551) 254-9284</a>
+          </div>
         </div>
       </footer>
     </main>
+    </ContactProvider>
   );
 }
