@@ -1,6 +1,5 @@
 import { ProjectCard } from "@/components/ProjectCard";
 import { SystemFlow } from "@/components/SystemFlow";
-import { ContactProvider, ContactTrigger } from "@/components/ContactModal";
 import { projects } from "@/data/projects";
 
 const stats = [
@@ -12,7 +11,6 @@ const stats = [
 
 export default function Home() {
   return (
-    <ContactProvider>
     <main>
       <nav className="nav shell" aria-label="Primary navigation">
         <a className="brand" href="#top" aria-label="Parash Portfolio home">PS<span>.</span></a>
@@ -22,7 +20,6 @@ export default function Home() {
           <a href="#projects">Projects</a>
           <a href="https://github.com/Parash-Shah" target="_blank" rel="noreferrer">GitHub</a>
         </div>
-        <ContactTrigger className="button button--ghost">Let&apos;s talk</ContactTrigger>
       </nav>
 
       <section className="hero shell" id="top">
@@ -117,7 +114,6 @@ export default function Home() {
           <h2>Let&apos;s build systems that matter.</h2>
         </div>
         <div className="footer-contact">
-          <ContactTrigger className="button footer-contact-button">Contact Me</ContactTrigger>
           <div className="footer-links">
             <a className="footer-link" href="https://github.com/Parash-Shah" target="_blank" rel="noopener noreferrer">
               <span>GitHub</span>
@@ -139,6 +135,5 @@ export default function Home() {
         </div>
       </footer>
     </main>
-    </ContactProvider>
   );
 }

@@ -40,7 +40,7 @@ Open the local development address printed by Next.js.
 - [ ] Recruiter / Engineer mode
 - [ ] AI portfolio assistant
 - [ ] GitHub-powered project metadata
-- [ ] Resume and contact flows
+- [ ] Resume flow
 - [ ] Vercel deployment + custom domain
 
 ## Portfolio project sequence
