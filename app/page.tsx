@@ -131,6 +131,10 @@ export default function Home() {
               <span>Phone</span>
               <strong>+1 (551) 254-9284</strong>
             </a>
+            <a className="footer-link" href="mailto:parash5301@yahoo.com">
+              <span>Email</span>
+              <strong>parash5301@yahoo.com</strong>
+            </a>
           </div>
         </div>
       </footer>
