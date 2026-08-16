@@ -96,7 +96,7 @@ export default function Home() {
           <div className="role-banner">
             <div>
               <span>Amazon Web Services</span>
-              <strong>Software Development Engineer (L4)</strong>
+              <strong>Software Development Engineer</strong>
             </div>
             <div>
               <span>Boston, MA</span>
