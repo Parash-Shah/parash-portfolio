@@ -9,7 +9,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     title: "Distributed Event Reliability Platform",
-    eyebrow: "Distributed Systems",
+    eyebrow: "Event-Driven Reliability",
     description:
       "A production-style backend that ingests and processes events asynchronously, recovers from failures, detects data loss, and exposes operational metrics.",
     concepts: ["Java", "Spring Boot", "AWS", "Observability"],

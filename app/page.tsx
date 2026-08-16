@@ -6,7 +6,25 @@ const stats = [
   ["13", "High-severity vulnerabilities remediated"],
   ["8", "Data sources covered by reliability monitoring"],
   ["251 / 300", "Partial-record scenario surfaced by stronger validation"],
-  ["AWS", "Production cloud and security engineering"],
+  ["16", "Automated tests validating the completed event platform"],
+];
+
+const impactAreas = [
+  {
+    title: "Cross-account security",
+    description:
+      "Built request-time validation with IAM, STS, CloudTrail, service-linked roles, and AWS SDKs to catch invalid onboarding configurations earlier.",
+  },
+  {
+    title: "Infrastructure hardening",
+    description:
+      "Remediated high-severity dependency findings and delivered CDK and pipeline fixes across IAM, KMS, trusted services, and deployment readiness.",
+  },
+  {
+    title: "Operational detection",
+    description:
+      "Created CloudWatch metering, per-source alarms, composite detection, and expected-row checks for silent ETL and partition-level data loss.",
+  },
 ];
 
 export default function Home() {
@@ -25,14 +43,14 @@ export default function Home() {
       <section className="hero shell" id="top">
         <div className="hero-glow hero-glow--one" />
         <div className="hero-glow hero-glow--two" />
-        <p className="kicker">Software Engineer @ AWS</p>
-        <h1>Building systems that keep working <em>when things fail.</em></h1>
+        <p className="kicker">Software Development Engineer · Cloud Security Infrastructure</p>
+        <h1>Engineering cloud defenses that <em>catch failure before impact.</em></h1>
         <p className="hero-copy">
-          I&apos;m Parash Shah. I build secure, reliable cloud systems and explore the engineering patterns behind distributed infrastructure, observability, security, and AI-native operations.
+          I&apos;m Parash Shah, a Software Development Engineer at AWS. I build production cloud security infrastructure for Amazon Security Lake and AWS Security Hub, with a focus on secure cross-account access, operational detection, and multi-region reliability.
         </p>
         <div className="hero-actions">
-          <a className="button" href="#projects">Explore my systems</a>
-          <a className="text-link" href="#story">Read my story <span>↓</span></a>
+          <a className="button" href="#projects">See what I&apos;ve built</a>
+          <a className="text-link" href="#work">View production impact <span>↓</span></a>
         </div>
         <a
           className="system-flow-link"
@@ -50,15 +68,16 @@ export default function Home() {
         <div className="section-index">01 / STORY</div>
         <div className="story-grid">
           <div>
-            <p className="kicker">Engineer. Marine. Systems builder.</p>
-            <h2>Different disciplines. One systems mindset.</h2>
+            <p className="kicker">Engineer. Marine. Reliability builder.</p>
+            <h2>From mission readiness to cloud resilience.</h2>
           </div>
           <div className="story-copy">
             <p>
-              My path moved through mechanical engineering, operational leadership in the U.S. Marine Corps, and software engineering at AWS. The common thread is systems thinking: understand the constraints, anticipate failure, and make the whole system more dependable.
+              My path spans mechanical engineering, operational leadership in the U.S. Marine Corps, and cloud security engineering at AWS. Across each role, I&apos;ve learned to understand constraints, anticipate failure, and build dependable infrastructure where accuracy and readiness matter.
             </p>
+            <p className="story-role">U.S. Marine Corps · Fuel Specialist &amp; Embarkation Manager · 2018–2025</p>
             <div className="timeline">
-              <span>Mechanical Engineering</span><i>→</i><span>U.S. Marine Corps</span><i>→</i><span>AWS</span><i>→</i><span>Distributed Systems</span><i>→</i><span>AI Infrastructure</span>
+              <span>Mechanical Engineering</span><i>→</i><span>U.S. Marine Corps</span><i>→</i><span>AWS</span><i>→</i><span>Cloud Security</span><i>→</i><span>Reliable Infrastructure</span>
             </div>
           </div>
         </div>
@@ -66,13 +85,23 @@ export default function Home() {
 
       <section className="section section--panel" id="work">
         <div className="shell">
-          <div className="section-index">02 / PRODUCTION ENGINEERING</div>
+          <div className="section-index">02 / PRODUCTION IMPACT</div>
           <div className="section-heading-row">
             <div>
-              <p className="kicker">Work that operates under real constraints</p>
-              <h2>Reliability, security, and cloud infrastructure.</h2>
+              <p className="kicker">Security and reliability at AWS</p>
+              <h2>Cloud safeguards backed by measurable outcomes.</h2>
             </div>
-            <p className="section-note">Selected public-safe signals from production engineering experience.</p>
+            <p className="section-note">Public-safe results from vulnerability remediation, security telemetry, automated validation, and data-pipeline monitoring.</p>
+          </div>
+          <div className="role-banner">
+            <div>
+              <span>Amazon Web Services</span>
+              <strong>Software Development Engineer (L4)</strong>
+            </div>
+            <div>
+              <span>Boston, MA</span>
+              <strong>Aug 2025 — Present</strong>
+            </div>
           </div>
           <div className="stats-grid">
             {stats.map(([value, label]) => (
@@ -82,17 +111,25 @@ export default function Home() {
               </div>
             ))}
           </div>
+          <div className="impact-grid">
+            {impactAreas.map((area) => (
+              <article className="impact-card" key={area.title}>
+                <h3>{area.title}</h3>
+                <p>{area.description}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
       <section className="section shell" id="projects">
-        <div className="section-index">03 / SYSTEMS LAB</div>
+        <div className="section-index">03 / ENGINEERING LAB</div>
         <div className="section-heading-row">
           <div>
-            <p className="kicker">A new system every week</p>
-            <h2>Projects built like engineering case studies.</h2>
+            <p className="kicker">Built. Tested. Documented.</p>
+            <h2>Reliability patterns proven in code.</h2>
           </div>
-          <p className="section-note">Each project documents the problem, architecture, tradeoffs, failure modes, validation, and lessons learned.</p>
+          <p className="section-note">Each project makes the architecture, tradeoffs, failure modes, validation evidence, and lessons learned visible.</p>
         </div>
         <div className="projects-grid">
           {projects.map((project) => <ProjectCard project={project} key={project.title} />)}
@@ -119,8 +156,8 @@ export default function Home() {
 
       <footer className="footer shell" id="contact">
         <div>
-          <p className="kicker">Build. Learn. Ship. Repeat.</p>
-          <h2>Let&apos;s build systems that matter.</h2>
+          <p className="kicker">Build. Validate. Improve.</p>
+          <h2>Let&apos;s build infrastructure that earns trust.</h2>
         </div>
         <div className="footer-contact">
           <div className="footer-links">
