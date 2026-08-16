@@ -34,7 +34,16 @@ export default function Home() {
           <a className="button" href="#projects">Explore my systems</a>
           <a className="text-link" href="#story">Read my story <span>↓</span></a>
         </div>
-        <SystemFlow />
+        <a
+          className="system-flow-link"
+          href="https://github.com/Parash-Shah/Distributed-event-reliability-platform"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="View the Distributed Event Reliability Platform on GitHub (opens in a new tab)"
+        >
+          <span className="system-flow-link__label">Featured project · View on GitHub <span aria-hidden="true">↗</span></span>
+          <SystemFlow />
+        </a>
       </section>
 
       <section className="section shell" id="story">

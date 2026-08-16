@@ -1,11 +1,10 @@
 import type { Project } from "@/data/projects";
 
 export function ProjectCard({ project }: { project: Project }) {
-  return (
+  const card = (
     <article className="project-card">
       <div className="project-card__topline">
         <span>{project.eyebrow}</span>
-        <span>{project.status}</span>
       </div>
       <h3>{project.title}</h3>
       <p>{project.description}</p>
@@ -14,7 +13,26 @@ export function ProjectCard({ project }: { project: Project }) {
           <span className="chip" key={concept}>{concept}</span>
         ))}
       </div>
-      <div className="project-card__footer">Explore system <span aria-hidden="true">↗</span></div>
+      <div className="project-card__footer">
+        {project.href ? "View project on GitHub" : "Case study coming soon"}
+        <span aria-hidden="true">{project.href ? "↗" : "→"}</span>
+      </div>
     </article>
+  );
+
+  if (!project.href) {
+    return card;
+  }
+
+  return (
+    <a
+      className="project-card-link"
+      href={project.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`${project.title} on GitHub (opens in a new tab)`}
+    >
+      {card}
+    </a>
   );
 }
