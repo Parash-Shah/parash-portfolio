@@ -19,6 +19,13 @@ type OpenAIResponse = {
   }>;
 };
 
+type OpenAIError = {
+  error?: {
+    code?: string;
+    type?: string;
+  };
+};
+
 const rateLimits = new Map<string, RateLimitEntry>();
 
 function getClientId(request: Request) {
@@ -57,6 +64,26 @@ function readAnswer(payload: OpenAIResponse) {
     .filter(Boolean)
     .join("\n")
     .trim();
+}
+
+function describeOpenAIError(status: number, code?: string) {
+  if (status === 401) {
+    return "The assistant API key was rejected. Please verify the Vercel secret.";
+  }
+
+  if (status === 403) {
+    return "The assistant does not have permission to use the configured model.";
+  }
+
+  if (status === 429 || code === "insufficient_quota") {
+    return "The assistant has reached its OpenAI project usage limit. Please check billing and spend limits.";
+  }
+
+  if (status === 400) {
+    return "The assistant model configuration needs attention.";
+  }
+
+  return "The assistant is temporarily unavailable. Please try again.";
 }
 
 export function GET() {
@@ -130,7 +157,7 @@ ${portfolioContext}
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: process.env.OPENAI_MODEL || "gpt-5.6-luna",
+        model: process.env.OPENAI_MODEL || "gpt-5-nano",
         instructions,
         input: question,
         max_output_tokens: 300,
@@ -142,13 +169,20 @@ ${portfolioContext}
     });
 
     if (!openAIResponse.ok) {
+      const errorPayload = (await openAIResponse.json().catch(() => ({}))) as OpenAIError;
+      const errorCode = errorPayload.error?.code || errorPayload.error?.type;
+
       console.error("Portfolio assistant request failed", {
         status: openAIResponse.status,
+        code: errorCode,
         requestId: openAIResponse.headers.get("x-request-id"),
       });
 
       return Response.json(
-        { error: "The assistant is temporarily unavailable. Please try again." },
+        {
+          error: describeOpenAIError(openAIResponse.status, errorCode),
+          code: errorCode || "openai_error",
+        },
         { status: 502 },
       );
     }
