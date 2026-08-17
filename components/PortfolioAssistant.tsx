@@ -3,9 +3,10 @@
 import { FormEvent, useState } from "react";
 
 const suggestions = [
+  "Tell me about Parash.",
   "What has Parash built?",
-  "How does Parash approach reliability?",
-  "Which AWS security areas has Parash worked on?",
+  "What did Parash do before AWS?",
+  "What does Parash enjoy outside work?",
 ];
 
 type AssistantResponse = {
@@ -17,7 +18,7 @@ export function PortfolioAssistant() {
   const [question, setQuestion] = useState("");
   const [submittedQuestion, setSubmittedQuestion] = useState("");
   const [answer, setAnswer] = useState(
-    "Ask about Parash’s engineering experience, security work, reliability results, or completed project.",
+    "Ask about Parash, his journey, engineering experience, completed projects, or interests outside work.",
   );
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
@@ -98,7 +99,7 @@ export function PortfolioAssistant() {
           onChange={(event) => setQuestion(event.target.value)}
           maxLength={300}
           minLength={3}
-          placeholder="Ask about experience or projects…"
+          placeholder="Ask about Parash, his experience, or projects…"
           autoComplete="off"
           disabled={isLoading}
           required

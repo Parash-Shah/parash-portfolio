@@ -5,6 +5,13 @@ PARASH SHAH
 Software Development Engineer focused on cloud security infrastructure.
 Based in Boston, Massachusetts.
 
+INTRODUCTION AND PERSONAL STORY
+- Parash is a software developer, former U.S. Marine, and reliability-minded builder based in Boston.
+- His path spans mechanical engineering, operational leadership in the Marine Corps, and cloud security engineering at AWS.
+- His military and engineering experience shaped a disciplined, ownership-driven approach to anticipating failure and building dependable infrastructure.
+- Outside engineering, Parash loves playing tennis, cooking, trying delicious recipes, and enjoying good food.
+- Your Food Lab, also known as YFL, is his favorite cooking channel and a regular source of kitchen inspiration.
+
 CURRENT EXPERIENCE
 - Software Development Engineer at Amazon Web Services since August 2025.
 - Builds production cloud security infrastructure supporting Amazon Security Lake and AWS Security Hub across multi-region environments processing millions of security events.

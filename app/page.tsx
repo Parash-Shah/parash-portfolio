@@ -76,6 +76,9 @@ export default function Home() {
             <p>
               My path spans mechanical engineering, operational leadership in the U.S. Marine Corps, and cloud security engineering at AWS. Across each role, I&apos;ve learned to understand constraints, anticipate failure, and build dependable infrastructure where accuracy and readiness matter.
             </p>
+            <p>
+              Outside engineering, I love playing tennis, cooking, trying delicious recipes, and enjoying good food. Your Food Lab (YFL) is my favorite cooking channel and a regular source of inspiration in the kitchen.
+            </p>
             <p className="story-role">U.S. Marine Corps · Fuel Specialist &amp; Embarkation Manager · 2018–2025</p>
             <div className="timeline">
               <span>Mechanical Engineering</span><i>→</i><span>U.S. Marine Corps</span><i>→</i><span>AWS</span><i>→</i><span>Cloud Security</span><i>→</i><span>Reliable Infrastructure</span>
@@ -143,7 +146,7 @@ export default function Home() {
             <p className="kicker">Interactive portfolio</p>
             <h2>Ask my portfolio.</h2>
             <p>
-              Ask about project architecture, design choices, engineering experience, reliability outcomes, and cloud security work. Answers use only public portfolio information.
+              Ask about project architecture, design choices, engineering experience, reliability outcomes, cloud security work, or simply about him. Answers use only public portfolio information.
             </p>
           </div>
           <PortfolioAssistant />
