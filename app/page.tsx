@@ -1,4 +1,5 @@
 import { ProjectCard } from "@/components/ProjectCard";
+import { PortfolioAssistant } from "@/components/PortfolioAssistant";
 import { SystemFlow } from "@/components/SystemFlow";
 import { projects } from "@/data/projects";
 
@@ -139,18 +140,13 @@ export default function Home() {
       <section className="section ai-section" id="ai">
         <div className="shell ai-card">
           <div>
-            <p className="kicker">Coming next</p>
+            <p className="kicker">Interactive portfolio</p>
             <h2>Ask my portfolio.</h2>
             <p>
-              An AI layer will let recruiters and engineers interrogate project architecture, design choices, relevant experience, and failure scenarios using only my public portfolio knowledge base.
+              Ask about project architecture, design choices, engineering experience, reliability outcomes, and cloud security work. Answers use only public portfolio information.
             </p>
           </div>
-          <div className="terminal">
-            <div className="terminal__bar"><span/><span/><span/></div>
-            <p><b>›</b> Which project best demonstrates reliability engineering?</p>
-            <p className="terminal__answer">The Silent Data Loss Detector focuses on input/output reconciliation, alarm design, partial-failure detection, and observability.</p>
-            <div className="terminal__cursor">_</div>
-          </div>
+          <PortfolioAssistant />
         </div>
       </section>
 
