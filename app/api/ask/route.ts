@@ -6,6 +6,7 @@ export const dynamic = "force-dynamic";
 const WINDOW_MS = 60_000;
 const MAX_REQUESTS_PER_WINDOW = 5;
 const MAX_QUESTION_LENGTH = 300;
+const MAX_OUTPUT_TOKENS = 1_200;
 
 type RateLimitEntry = {
   count: number;
@@ -13,6 +14,10 @@ type RateLimitEntry = {
 };
 
 type OpenAIResponse = {
+  status?: string;
+  incomplete_details?: {
+    reason?: string;
+  } | null;
   output?: Array<{
     type?: string;
     content?: Array<{ type?: string; text?: string }>;
@@ -150,6 +155,7 @@ ${portfolioContext}
 `.trim();
 
   try {
+    const model = process.env.OPENAI_MODEL || "gpt-5-nano";
     const openAIResponse = await fetch("https://api.openai.com/v1/responses", {
       method: "POST",
       headers: {
@@ -157,12 +163,15 @@ ${portfolioContext}
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: process.env.OPENAI_MODEL || "gpt-5-nano",
+        model,
         instructions,
         input: question,
-        max_output_tokens: 300,
+        max_output_tokens: MAX_OUTPUT_TOKENS,
         store: false,
         text: { verbosity: "low" },
+        ...(model === "gpt-5-nano"
+          ? { reasoning: { effort: "minimal" } }
+          : {}),
         safety_identifier: `portfolio_${getClientId(request).slice(0, 48)}`,
       }),
       cache: "no-store",
@@ -187,9 +196,16 @@ ${portfolioContext}
       );
     }
 
-    const answer = readAnswer((await openAIResponse.json()) as OpenAIResponse);
+    const responsePayload = (await openAIResponse.json()) as OpenAIResponse;
+    const answer = readAnswer(responsePayload);
 
     if (!answer) {
+      console.error("Portfolio assistant returned no text", {
+        status: responsePayload.status,
+        incompleteReason: responsePayload.incomplete_details?.reason,
+        requestId: openAIResponse.headers.get("x-request-id"),
+      });
+
       return Response.json(
         { error: "The assistant could not produce an answer. Please try another question." },
         { status: 502 },
