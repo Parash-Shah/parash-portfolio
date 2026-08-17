@@ -163,7 +163,7 @@ ${portfolioContext}
         max_output_tokens: 300,
         store: false,
         text: { verbosity: "low" },
-        safety_identifier: `portfolio_${getClientId(request)}`,
+        safety_identifier: `portfolio_${getClientId(request).slice(0, 48)}`,
       }),
       cache: "no-store",
     });
