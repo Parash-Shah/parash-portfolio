@@ -56,12 +56,12 @@ export default function Home() {
           </div>
           <a
             className="system-flow-link"
-            href="https://github.com/Parash-Shah/Distributed-event-reliability-platform"
+            href="https://github.com/Parash-Shah?tab=repositories"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="View the Distributed Event Reliability Platform on GitHub (opens in a new tab)"
+            aria-label="Browse Parash Shah's GitHub repositories (opens in a new tab)"
           >
-            <span className="system-flow-link__label">Featured project · View on GitHub <span aria-hidden="true">↗</span></span>
+            <span className="system-flow-link__label">Featured project · Browse GitHub repositories <span aria-hidden="true">↗</span></span>
             <SystemFlow />
           </a>
         </div>
