@@ -41,28 +41,30 @@ export default function Home() {
         </div>
       </nav>
 
-      <section className="hero shell" id="top">
-        <div className="hero-glow hero-glow--one" />
-        <div className="hero-glow hero-glow--two" />
-        <p className="kicker">Software Development Engineer · Cloud Security Infrastructure</p>
-        <h1>Engineering cloud defenses that <em>catch failure before impact.</em></h1>
-        <p className="hero-copy">
-          I&apos;m Parash Shah, a Software Development Engineer at AWS. I build production cloud security infrastructure for Amazon Security Lake and AWS Security Hub, with a focus on secure cross-account access, operational detection, and multi-region reliability.
-        </p>
-        <div className="hero-actions">
-          <a className="button" href="#projects">See what I&apos;ve built</a>
-          <a className="text-link" href="#work">View production impact <span>↓</span></a>
+      <section className="hero" id="top">
+        <div className="shell hero__content">
+          <div className="hero-glow hero-glow--one" />
+          <div className="hero-glow hero-glow--two" />
+          <p className="kicker">Software Development Engineer · Cloud Security Infrastructure</p>
+          <h1>Engineering cloud defenses that <em>catch failure before impact.</em></h1>
+          <p className="hero-copy">
+            I&apos;m Parash Shah, a Software Development Engineer at AWS. I build production cloud security infrastructure for Amazon Security Lake and AWS Security Hub, with a focus on secure cross-account access, operational detection, and multi-region reliability.
+          </p>
+          <div className="hero-actions">
+            <a className="button" href="#projects">See what I&apos;ve built</a>
+            <a className="text-link" href="#work">View production impact <span>↓</span></a>
+          </div>
+          <a
+            className="system-flow-link"
+            href="https://github.com/Parash-Shah/Distributed-event-reliability-platform"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View the Distributed Event Reliability Platform on GitHub (opens in a new tab)"
+          >
+            <span className="system-flow-link__label">Featured project · View on GitHub <span aria-hidden="true">↗</span></span>
+            <SystemFlow />
+          </a>
         </div>
-        <a
-          className="system-flow-link"
-          href="https://github.com/Parash-Shah/Distributed-event-reliability-platform"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="View the Distributed Event Reliability Platform on GitHub (opens in a new tab)"
-        >
-          <span className="system-flow-link__label">Featured project · View on GitHub <span aria-hidden="true">↗</span></span>
-          <SystemFlow />
-        </a>
       </section>
 
       <section className="section shell" id="story">
