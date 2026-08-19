@@ -67,7 +67,13 @@ export function PortfolioAssistant() {
 
   return (
     <div className="terminal assistant" aria-busy={isLoading}>
-      <div className="terminal__bar" aria-hidden="true"><span/><span/><span/></div>
+      <div className="terminal__bar" aria-hidden="true">
+        <div className="terminal__dots"><span/><span/><span/></div>
+        <span className="terminal__title">parash.portfolio</span>
+        <span className={`terminal__status${isLoading ? " is-busy" : ""}`}>
+          <i /> {isLoading ? "thinking" : "ready"}
+        </span>
+      </div>
 
       <div className="assistant__conversation" aria-live="polite">
         {submittedQuestion && (
@@ -78,21 +84,25 @@ export function PortfolioAssistant() {
         </p>
       </div>
 
+      <p className="assistant__suggestions-label">Suggested prompts</p>
       <div className="assistant__suggestions" aria-label="Suggested questions">
-        {suggestions.map((suggestion) => (
+        {suggestions.map((suggestion, index) => (
           <button
             key={suggestion}
             type="button"
             onClick={() => void askQuestion(suggestion)}
             disabled={isLoading}
           >
-            {suggestion}
+            <span className="assistant__suggestion-index">0{index + 1}</span>
+            <span>{suggestion}</span>
+            <span className="assistant__suggestion-arrow" aria-hidden="true">↗</span>
           </button>
         ))}
       </div>
 
       <form className="assistant__form" onSubmit={handleSubmit}>
         <label className="sr-only" htmlFor="portfolio-question">Ask Parash&apos;s portfolio a question</label>
+        <span className="assistant__prompt" aria-hidden="true">›</span>
         <input
           id="portfolio-question"
           value={question}
@@ -105,7 +115,7 @@ export function PortfolioAssistant() {
           required
         />
         <button type="submit" disabled={isLoading || question.trim().length < 3}>
-          {isLoading ? "Asking…" : "Ask"}
+          {isLoading ? "Asking…" : "Ask →"}
         </button>
       </form>
       <p className="assistant__note">Answers are limited to public portfolio information.</p>
