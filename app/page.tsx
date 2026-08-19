@@ -45,7 +45,7 @@ export default function Home() {
         <div className="shell hero__content">
           <div className="hero-glow hero-glow--one" />
           <div className="hero-glow hero-glow--two" />
-          <p className="kicker">Software Development Engineer · Cloud Security Infrastructure</p>
+          <p className="kicker hero-role">Software Development Engineer · Cloud Security Infrastructure</p>
           <h1>Engineering cloud defenses that <em>catch failure before impact.</em></h1>
           <p className="hero-copy">
             I&apos;m Parash Shah, a Software Development Engineer at AWS. I build production cloud security infrastructure for Amazon Security Lake and AWS Security Hub, with a focus on secure cross-account access, operational detection, and multi-region reliability.
